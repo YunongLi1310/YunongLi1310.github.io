@@ -15,7 +15,7 @@
         .container {
             width: 60%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 18px;
         }
         .header {
             display: flex;
@@ -45,14 +45,14 @@
             color: #666;
             font-size: 18px; /* 增大字体 */
         }
-        .social-icons {
+        /* .social-icons {
             display: flex;
             gap: 10px;
         }
         .social-icons a {
             text-decoration: none;
             color: #333;
-        }
+        } */
         .content {
             margin-top: 20px;
             padding: 20px;
@@ -60,9 +60,17 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .content::before {
+            content: "";
+            display: block;
+            height: 60px; /* 根据导航栏的高度调整 */
+            margin-top: -60px; /* 根据导航栏的高度调整 */
+            visibility: hidden;
+        }
         .content h2 {
-            margin-top: 0;
+            margin-top: -60px;
             text-align: center; /* 标题居中 */
+            padding-top: 60px
         }
         .education-container {
             display: flex;
@@ -99,17 +107,29 @@
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0); /* 半透明背景 */
             padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(104, 51, 51, 0.1);
+            position: fixed;
+            top: 0;
+            width: 60%; /* 与 .container 的宽度相当 */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
         }
+
         .navbar a {
             margin: 0 15px;
             text-decoration: none;
             color: #ee0000;
         }
-        .navbar a:hover {
+
+        /* .navbar a:hover {
             text-decoration: underline;
+        } */
+
+        html {
+            scroll-behavior: smooth;
         }
         @media (max-width: 768px) {
             .container {
@@ -129,16 +149,17 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Biography</a>
-        <a href="#">Education</a>
-        <a href="#">Courses</a>
+        <a href="#home">Home</a>
+        <a href="#bio">Biography</a>
+        <a href="#edu">Education</a>
+        <a href="#courses">Courses</a>
     </div>
 
-    <div class="container">
+    <div id="home" class="container">
         <div class="header">
             <img src="images/selfie.jpg" alt="Yunong Li">
             <div class="info">
@@ -155,7 +176,7 @@
             </div>
         </div>
 
-        <div class="content">
+        <div id="bio" class="content">
             <h2>Biography</h2>
             <p>Hi, I'm Yunong Li from Beijing, China. I attended the High School Affiliated with Renmin University from 2013 to 2019 for both middle and high school. 
                 Afterward, I spent my freshman year at UC Davis before transferring to the University of Toronto, where I completed my undergraduate studies in 2024. 
@@ -165,79 +186,79 @@
                 but I can play most ball games. I'm an enthusiastic gamer, recently playing games like LOL, Genshin Impact, CS2, KOF (especially KOF97 and KOF15), 
                 Honor of Kings, Crazyracing Kartrider (I prefer the old version over KartRider: Drift), and Minecraft. Additionally, I have an interest in poker, 
                 specifically, Texas Hold 'em. If you share any of these interests, let's play together!</p>
-            </div>
-        
-            <div class="content">
-                <h2>Education</h2>
-                <div class="education-container">
-                    <div class="education-item">
-                        <h3>University of California, Davis</h3>
-                        <p>Davis, USA</p>
-                        <p>2019-2020</p>
-                        <p><strong>Major:</strong> Math Major</p>
-                        <p><strong>CGPA:</strong> 3.87/4.0</p>
-                        </ul>
-                    </div>
-                    <div class="education-item">
-                        <h3>University of Toronto</h3>
-                        <p>Toronto, Canada</p>
-                        <p>2020-2024</p>
-                        <p><strong>Degree:</strong> Bachelor of Science</p>
-                        <p><strong>Major:</strong> Mathematics Specialist, CS Major </p>
-                        <p><strong>CGPA:</strong> 3.89/4.0</p>
-                    </div>
+        </div>
+            
+        <div id="edu" class="content">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>University of California, Davis</h3>
+                    <p>Davis, USA</p>
+                    <p>2019-2020</p>
+                    <p><strong>Major:</strong> Math Major</p>
+                    <p><strong>CGPA:</strong> 3.87/4.0</p>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3>University of Toronto</h3>
+                    <p>Toronto, Canada</p>
+                    <p>2020-2024</p>
+                    <p><strong>Degree:</strong> Bachelor of Science</p>
+                    <p><strong>Major:</strong> Mathematics Specialist, CS Major </p>
+                    <p><strong>CGPA:</strong> 3.89/4.0</p>
                 </div>
             </div>
+        </div>
 
-            <div class="content">
-                <h2>Courses</h2>
-                <div class="courses-container">
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat157y1" target="_blank">MAT157</a>, Analysis I, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat240h1" target="_blank">MAT240</a>, Algebra I, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat247h1" target="_blank">MAT247</a>, Algebra II, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat257y1" target="_blank">MAT257</a>, Analysis II, </strong>
-                        <strong></strong> <a href="notes/MAT257.pdf" target="_blank">Course Notes (only second half)</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat347y1" target="_blank">MAT347</a>, Groups, Rings and Fields, </strong>
-                        <strong></strong> <a href="notes/MAT347.pdf" target="_blank">Course Notes (only last month)</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat327h1" target="_blank">MAT327</a>, Introduction to Topology, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat267h1" target="_blank">MAT267</a>, Advanced Ordinary Differential Equations, </strong>
-                        <strong></strong> <a href="notes/MAT267.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat315h1" target="_blank">MAT315</a>, Introduction to Number Theory, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat344h1" target="_blank">MAT344</a>, Introduction to Combinatorics, </strong>
-                        <strong></strong>Course Notes</p>
-                    <p><strong><a href="https://www.math.toronto.edu/~ila/mat1100f2021.html" target="_blank">MAT1100</a>, Algebra I (graduate level), </strong>
-                        <strong></strong> <a href="notes/MAT1100.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat351y1" target="_blank">MAT351</a>, Partial Differential Equations, </strong>
-                        <strong></strong> <a href="notes/MAT351.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat354h1" target="_blank">MAT354</a>, Complex Analysis I, </strong>
-                        <strong></strong> <a href="notes/MAT354.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat357h1" target="_blank">MAT357</a>, Foundations of Real Analysis, </strong>
-                        <strong></strong> <a href="notes/MAT357.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat367h1" target="_blank">MAT367</a>, Differential Geometry, </strong>
-                        <strong></strong> <a href="notes/MAT367.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat415h1" target="_blank">MAT415</a>, Algebraic Number Theory, </strong>
-                        <strong></strong> <a href="notes/MAT415.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://www.math.utoronto.ca/~ila/mat1210f2023.html" target="_blank">MAT1210</a>, Class Field Theory, </strong>
-                        <strong></strong> <a href="notes/MAT1210.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat309h1" target="_blank">MAT309</a>, Introduction to Mathematical Logic, </strong>
-                        <strong></strong> Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat417h1" target="_blank">MAT417</a>, Analytic Number Theory, </strong>
-                        <strong></strong> Course Notes</p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat457h1" target="_blank">MAT457</a>, Advanced Real Analysis I, </strong>
-                        <strong></strong> <a href="notes/MAT457.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat458h1" target="_blank">MAT458</a>, Advanced Real Analysis II, </strong>
-                        <strong></strong> <a href="notes/MAT458.pdf" target="_blank">Course Notes</a></p>
-                    <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat477h1" target="_blank">MAT477</a>, Seminar in Mathematics, </strong>
-                        <strong></strong> Course Notes</p>
-                    <p><strong><a href="https://www.math.toronto.edu/~herzig/1101-s23.html" target="_blank">MAT1101</a>, Algebra II (graduate level), </strong>
-                        <strong></strong> <a href="notes/MAT1101.pdf" target="_blank">Course Notes</a></p>
-                </div>
-</div>
+        <div id="courses" class="content">
+            <h2>Courses</h2>
+            <div class="courses-container">
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat157y1" target="_blank">MAT157</a>, Analysis I, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat240h1" target="_blank">MAT240</a>, Algebra I, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat247h1" target="_blank">MAT247</a>, Algebra II, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat257y1" target="_blank">MAT257</a>, Analysis II, </strong>
+                    <strong></strong> <a href="notes/MAT257.pdf" target="_blank">Course Notes (only second half)</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat347y1" target="_blank">MAT347</a>, Groups, Rings and Fields, </strong>
+                    <strong></strong> <a href="notes/MAT347.pdf" target="_blank">Course Notes (only the last month)</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat327h1" target="_blank">MAT327</a>, Introduction to Topology, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat267h1" target="_blank">MAT267</a>, Advanced Ordinary Differential Equations, </strong>
+                    <strong></strong> <a href="notes/MAT267.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat315h1" target="_blank">MAT315</a>, Introduction to Number Theory, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat344h1" target="_blank">MAT344</a>, Introduction to Combinatorics, </strong>
+                    <strong></strong>Course Notes</p>
+                <p><strong><a href="https://www.math.toronto.edu/~ila/mat1100f2021.html" target="_blank">MAT1100</a>, Algebra I (graduate level), </strong>
+                    <strong></strong> <a href="notes/MAT1100.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat351y1" target="_blank">MAT351</a>, Partial Differential Equations, </strong>
+                    <strong></strong> <a href="notes/MAT351.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat354h1" target="_blank">MAT354</a>, Complex Analysis I, </strong>
+                    <strong></strong> <a href="notes/MAT354.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat357h1" target="_blank">MAT357</a>, Foundations of Real Analysis, </strong>
+                    <strong></strong> <a href="notes/MAT357.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat367h1" target="_blank">MAT367</a>, Differential Geometry, </strong>
+                    <strong></strong> <a href="notes/MAT367.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat415h1" target="_blank">MAT415</a>, Algebraic Number Theory, </strong>
+                    <strong></strong> <a href="notes/MAT415.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://www.math.utoronto.ca/~ila/mat1210f2023.html" target="_blank">MAT1210</a>, Class Field Theory, </strong>
+                    <strong></strong> <a href="notes/MAT1210.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat309h1" target="_blank">MAT309</a>, Introduction to Mathematical Logic, </strong>
+                    <strong></strong> Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat417h1" target="_blank">MAT417</a>, Analytic Number Theory, </strong>
+                    <strong></strong> Course Notes</p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat457h1" target="_blank">MAT457</a>, Advanced Real Analysis I, </strong>
+                    <strong></strong> <a href="notes/MAT457.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat458h1" target="_blank">MAT458</a>, Advanced Real Analysis II, </strong>
+                    <strong></strong> <a href="notes/MAT458.pdf" target="_blank">Course Notes</a></p>
+                <p><strong><a href="https://artsci.calendar.utoronto.ca/course/mat477h1" target="_blank">MAT477</a>, Seminar in Mathematics, </strong>
+                    <strong></strong> Course Notes</p>
+                <p><strong><a href="https://www.math.toronto.edu/~herzig/1101-s23.html" target="_blank">MAT1101</a>, Algebra II (graduate level), </strong>
+                    <strong></strong> <a href="notes/MAT1101.pdf" target="_blank">Course Notes</a></p>
+            </div>
+        </div>
     </div>
 
 </body>
