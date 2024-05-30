@@ -3,30 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homepage</title>
+    <title>Yunong Li | Personal Homepage</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif, sans-serif;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #66ccff;
+            color: #333;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
             padding: 20px;
         }
-        img {
-            max-width: 70%; /* Ensures the image fits within the viewport */
-            height: auto;   /* Maintains the aspect ratio */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* 中心对齐 */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .header img {
+            border-radius: 5px;
+            width: 250px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .header .info {
+            text-align: center;
+        }
+        .header .info h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .header .info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 18px; /* 增大字体 */
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: #333;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            margin-top: 0;
+            text-align: center; /* 标题居中 */
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ee0000;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <img src="selfie.jpg" alt="My Photo">
-    <h1>李雨浓</h1>
-    <h1>Yunong Li</h1>
-    <p>Hi, I'm Yunong Li from Beijing, China. I attended the High School Affiliated with Renmin University from 2013 to 2019 for both middle and high school. 
-        Afterward, I spent my freshman year at UC Davis before transferring to the University of Toronto, where I completed my undergraduate studies in 2024. 
-        I am now planning to pursue my graduate studies at the University of Waterloo. I am majoring in Math and Computer Science, with a strong focus on Math, 
-        and I aim to pursue a Ph.D. in Math in the future, although I am currently enrolled in a Master's program.</p>
-    <p>I have a variety of hobbies. I enjoy playing Rubik's Cubes, pen spinning, and cardistry. I also play many sports, with basketball being my favorite, 
-        but I can play most ball games. I'm an enthusiastic gamer, recently playing games like LOL, Genshin Impact, CS2, KOF (especially KOF97 and KOF15), 
-        Honor of Kings, Crazyracing Kartrider (I prefer the old version over KartRider: Drift), and Minecraft. Additionally, I have an interest in poker, 
-        specifically, Texas Hold 'em. If you share any of these interests, let's play together!</p>    
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Biography</a>
+        <a href="#">Education</a>
+        <a href="#">Courses</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <img src="selfie.jpg" alt="Yunong Li">
+            <div class="info">
+                <h1>Yunong Li</h1>
+                <p>Graduate Student, Mathematics</p>
+                <p>University of Waterloo</p>
+                <p>Email: yunongli40 at gmail dot com</p>
+                <!-- <div class="social-icons">
+                    <a href="#"><img src="path/to/github-icon.png" alt="GitHub" width="24"></a>
+                    <a href="#"><img src="path/to/google-icon.png" alt="Google" width="24"></a>
+                    <a href="#"><img src="path/to/twitter-icon.png" alt="Twitter" width="24"></a>
+                    <a href="#"><img src="path/to/calendar-icon.png" alt="Calendar" width="24"></a>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Biography</h2>
+            <p>Hi, I'm Yunong Li from Beijing, China. I attended the High School Affiliated with Renmin University from 2013 to 2019 for both middle and high school. 
+                Afterward, I spent my freshman year at UC Davis before transferring to the University of Toronto, where I completed my undergraduate studies in 2024. 
+                I am now planning to pursue my graduate studies at the University of Waterloo. I am majoring in Math and Computer Science, with a strong focus on Math, 
+                and I aim to pursue a Ph.D. in Math in the future, although I am currently enrolled in a Master's program.</p>
+            <p>I have a variety of hobbies. I enjoy playing Rubik's Cubes, pen spinning, and cardistry. I also play many sports, with basketball being my favorite, 
+                but I can play most ball games. I'm an enthusiastic gamer, recently playing games like LOL, Genshin Impact, CS2, KOF (especially KOF97 and KOF15), 
+                Honor of Kings, Crazyracing Kartrider (I prefer the old version over KartRider: Drift), and Minecraft. Additionally, I have an interest in poker, 
+                specifically, Texas Hold 'em. If you share any of these interests, let's play together!</p>
+            </div>
+    </div>
+
 </body>
 </html>
